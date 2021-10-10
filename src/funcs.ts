@@ -13,13 +13,13 @@ export function mask(
     return conformedValue;
 }
 
-export function unMask(input: string, mask: Mask): string {
-    const m = parseMask(mask);
-    if (!m || !m.length || typeof m === "function") return input;
-    return input
+export function unMask(input: string, m: Mask): string {
+    const _mask = parseMask(m);
+    if (!_mask || !_mask.length || typeof _mask === "function") return input;
+    return mask(input, m)
         .split("")
         .map((v, index) => {
-            if (m[index] && !(m[index] instanceof RegExp)) {
+            if (_mask[index] && !(_mask[index] instanceof RegExp)) {
                 return "";
             } else {
                 return v;

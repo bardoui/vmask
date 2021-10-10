@@ -23,6 +23,7 @@
                 <input type="checkbox" id="guide" v-model="guide" />
                 <label for="guide">Show guide?</label>
             </div>
+            <p>{{ dirInput }}</p>
         </div>
     </section>
 </template>

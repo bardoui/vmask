@@ -92,6 +92,8 @@ unMask("1234-56", "####-##"); // 123456
 
 ## Directive
 
+**Caution**: directive only work on input with `v-model`!
+
 ```ts
 import { vMask } from "@bardoui/vmask";
 app.directive("mask", vMask);
