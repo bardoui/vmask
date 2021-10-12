@@ -14,9 +14,9 @@ export function mask(
 }
 
 export function unMask(input: string, m: Mask): string {
-    const _mask = parseMask(m);
+    const _mask = typeof m === "function" ? parseMask(m(input)) : parseMask(m);
     if (!_mask || !_mask.length || typeof _mask === "function") return input;
-    return mask(input, m)
+    return mask(input, _mask)
         .split("")
         .map((v, index) => {
             if (_mask[index] && !(_mask[index] instanceof RegExp)) {
